@@ -1,0 +1,20 @@
+#! /bin/sh
+# /etc/init.d/lcd12864
+
+case "$1" in
+  start)
+    echo "Starting lcd12864"
+    sudo /usr/bin/python /usr/bin/lcd12864/main.py $
+  ;;
+  stop)
+    echo "Stopping lcd12864"
+    killall python
+    sudo /usr/bin/python /usr/bin/lcd12864/stop.py
+    ;;
+  *)
+    echo "Usage: /etc/init.d/lcd12864 {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
